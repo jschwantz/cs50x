@@ -1,0 +1,9 @@
+Take in key as function argument, return if no argument or not a postive integer
+Get string for user to input plaintext
+for i = 0 to length of string, i++
+  c[i] = string i + key
+  // if the new letter is greater Z but was originally between a and z, need to start     // from A
+  if (c[i] > Z and p[i] > A and p[i] < Z) || (c[i] > z and p[i] > a and p[i] < z)
+    c[i] += -26
+
+  
