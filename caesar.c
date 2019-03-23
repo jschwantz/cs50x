@@ -44,6 +44,6 @@ int main(int argc, string argv[])
             ctext[i] = ('A' - 1) + ((ptext[i] + key - ('A' - 1)) % 26);
         }
     }
-    printf("%s\n", ctext);
+    printf("ciphertext:%s\n", ctext);
     return 0;
 }
