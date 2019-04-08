@@ -1,0 +1,79 @@
+h1 {
+    text-align: center;
+    padding: 10px;
+    color: white;
+}
+
+h6 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+    padding: 20px;
+    color: white;
+}
+
+ul li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    float: left;
+}
+
+/*.rank {
+    list-style-type: default;
+    margin: default;
+    padding: default;
+    float: default;
+}*/
+
+/* li:last-child {
+    float: right;
+}
+*/
+
+#indexbody {
+  background-image: url("https://pbs.twimg.com/profile_images/455462889420488705/fvxRkqs0_400x400.jpeg");
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-color: maroon;
+  background-size: 200px 250px;
+}
+
+div {
+  background-color: black;
+  margin: 30px;
+}
+
+body {
+    background-color: maroon;
+}
+
+.menu {
+    display: block;
+    padding: 8px;
+    background-color: #dddddd;
+}
+
+.active {
+  background-color: #000000;
+  color: white;
+}
+
+ul {
+  position: -webkit-sticky; /* Safari */
+  position: sticky;
+  top: 0;
+}
+
+img {
+    max-width: 500px;
+}
+
+ol {
+    margin-left: 500px;
+    text-decoration: none;
+    color: white;
+}
