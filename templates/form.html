@@ -1,0 +1,74 @@
+{% extends "layout.html" %}
+
+{% block main %}
+
+    <!-- http://getbootstrap.com/docs/4.1/content/typography/ -->
+    <h1 class="mb-3">The Wall Enlistment</h1>
+
+    <!-- http://getbootstrap.com/docs/4.1/components/forms/ -->
+    <form action="/form" method="post">
+
+        <input name = "name" type = "text" class = "name"> Name
+        <br>
+        <select name="leigelord" id = "leigelord">
+          <option value="leige" disabled selected>Leige Lord</option>
+          <option value="arryn">Arryn</option>
+          <option value="baratheon">Baratheon</option>
+          <option value="tully">Tully</option>
+          <option value="greyjoy">Greyjoy</option>
+          <option value="stark">Stark</option>
+          <option value="lannister">Lannister</option>
+          <option value="tyrell">Tyrell</option>
+          <option value="martell">Martell</option>
+          <option value="targaryen">Targaryen</option>
+        </select>
+        <br>
+        <select name="weapon" id = "weapon">
+          <option value="woc" disabled selected>Weapon of Choice</option>
+          <option value="sword">Sword</option>
+          <option value="axe">Axe</option>
+          <option value="bow">Bow</option>
+          <option value="ladel">Ladel</option>
+        </select>
+        <br>
+        <input name = "why" type = "radio" value = "fun"> I'm joining for an adventure.
+        <br>
+        <input name = "why" type = "radio" value = "duty"> I need to protect my people.
+        <br>
+        <input name = "why" type = "radio" value = "crime"> I committed a crime and was going to die.
+        <br>
+        <input name = "why" type = "radio" value = "other"> Other (fill out reason below)
+        <br>
+        <input name = "otherreason" type = "text" id = "reason"> Other Reason
+        <br>
+
+        <!-- http://getbootstrap.com/docs/4.1/components/buttons/ -->
+        <button class="btn btn-primary" type="submit">Submit</button>
+
+    </form>
+
+    <script>
+
+        document.querySelector('form').onsubmit = function() {
+            if (!document.querySelector('.name').value) {
+                alert('You must provide your name!');
+                return false;
+            }
+            else if (!document.querySelector('#leigelord').value || document.querySelector('#leigelord').value == "leige" ) {
+                alert('You must provide your Leige Lord!');
+                return false;
+            }
+            else if (!document.querySelector('#weapon').value || document.querySelector('#weapon').value == 'woc') {
+                alert('You must provide your weapon of choice!');
+                return false;
+            }
+            else if (!document.querySelector('radio').value) {
+                alert('You must provide your reason for joining!');
+                return false;
+            }
+            return true;
+        };
+
+    </script>
+
+{% endblock %}
