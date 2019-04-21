@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Sell
+{% endblock %}
+
+{% block main %}
+    <form action="/sell" method="post">
+        <div class="form-group">
+            <select name="symbol" id="symbol">
+              <option value="stock" disabled selected>Stock Symbol</option>
+
+              {% for row in rows %}
+                  <option value={{ row["symbol"] }}>{{ row["symbol"] }}</option>
+              {% endfor %}
+
+            </select>
+        </div>
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="shares" placeholder="Number of Shares" type="number">
+        </div>
+        <button class="btn btn-primary" type="submit">Sell</button>
+    </form>
+
+    <script>
+        document.querySelector('form').onsubmit = function() {
+            if (!document.querySelector('input[name="symbol"]').value) {
+                alert('You must provide a stock symbol!');
+                return false;
+            }
+            else if (!document.querySelector('input[name="shares"]').value) {
+                alert('You must enter a number of shares!');
+                return false;
+            }
+            else if (document.querySelector('input[name="shares"]').value < 1) {
+                alert('You must enter a number of shares greater than zero!');
+                return false;
+            }
+            return true;
+        };
+    </script>
+{% endblock %}

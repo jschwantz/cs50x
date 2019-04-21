@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Register
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post" id = "register">
+        <div class="form-group">
+            <input autocomplete="off" autofocus class="form-control" name="username" placeholder="Username" type="text">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="password" placeholder="Password" type="password">
+        </div>
+        <div class="form-group">
+            <input class="form-control" name="confirmation" placeholder="Confirmation" type="password">
+        </div>
+        <button class="btn btn-primary" type="submit" id="submit">Register</button>
+    </form>
+
+    <script>
+        document.querySelector('form').onsubmit = function() {
+                        if (!document.querySelector('input[name="username"]').value) {
+                alert('You must provide a username!');
+                return false;
+            }
+            else if (!document.querySelector('input[name="password"]').value || !document.querySelector('input[name="confirmation"]').value ) {
+                alert('You must enter a password');
+                return false;
+            }
+            else if (document.querySelector('input[name="password"]').value != document.querySelector('input[name="confirmation"]').value) {
+                alert('Passwords must match!');
+                return false;
+            }
+
+            return true;
+        };
+
+        <!--https://learn.jquery.com/using-jquery-core/faq/how-do-i-disable-enable-a-form-element/-->
+        let input = document.querySelector('input[name="username"]');
+        input.onkeyup = function() {
+            $.get('/check?username=' + input.value, function(data) {
+                if (!data)
+                {
+                    alert('Username already taken!');
+                    $('#submit').attr("disabled", true);
+                }
+                else {
+                    $('#submit').attr("disabled", false);
+                }
+            });
+        };
+
+
+    </script>
+{% endblock %}
